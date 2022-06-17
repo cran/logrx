@@ -1,0 +1,4 @@
+Name: logrx
+Description: Runs a file using `axecute()`
+Binding: logrxAddin
+Interactive: true
