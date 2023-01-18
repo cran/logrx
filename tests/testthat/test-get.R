@@ -9,7 +9,7 @@ test_that("metadata elements are specified correctly and loaded into a list", {
                                 logrx_session_info[['loadedversion']]),
                   version = logrx_session_info[['loadedversion']],
                   built = logrx_session_info[["source"]],
-                  repository_link = "https://github.com/atorus-research/logrx"
+                  repository_link = "https://github.com/pharmaverse/logrx"
                ))
 })
 
@@ -48,6 +48,16 @@ test_that("ex1.R parses correctly", {
    )
 
    expect_identical(get_used_functions(filename), expected)
+})
+
+test_that("get used functions returns NULL when no functions are used", {
+   r_path <- tempfile(fileext = ".R")
+   withr::defer(unlink(r_path))
+
+   writeLines(text = "1",
+              con = r_path)
+
+   expect_identical(get_used_functions(r_path), NULL)
 })
 
 test_that("unapproved packages and functions found in ex2.R", {
@@ -110,4 +120,22 @@ test_that("parse does not fatal error when syntax issue occurs", {
       )
 
    expect_identical(get_used_functions(filename), expected)
+})
+
+test_that("lint returns expected result when option is set", {
+   filename <- test_path("ref", "ex6.R")
+   source(filename, local = TRUE)
+
+   expected <- lint(filename, c(lintr::undesirable_operator_linter()))
+
+   withr::local_options(log.rx.lint = c(lintr::undesirable_operator_linter()))
+
+   expect_identical(get_lint_results(filename), expected)
+})
+
+test_that("lint returns expected result when option is not set", {
+   filename <- test_path("ref", "ex6.R")
+   source(filename, local = TRUE)
+
+   expect_identical(get_lint_results(filename), NULL)
 })

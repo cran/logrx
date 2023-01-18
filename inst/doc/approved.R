@@ -20,10 +20,10 @@ dir <- tempdir()
 build_approved(approved_pkgs, file = file.path(dir, "approved.rds"))
 
 ## -----------------------------------------------------------------------------
-options(logrx.approved = file.path(dir, "approved.rds"))
+options(log.rx.approved = file.path(dir, "approved.rds"))
 
 ## -----------------------------------------------------------------------------
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 
 results <- mtcars %>%
    group_by(cyl) %>%
@@ -49,7 +49,6 @@ results %>%
 fileConn <- file(file.path(dir,"mpg.R"))
 writeLines(text, fileConn)
 close(fileConn)
-
 
 ## ----results='hide'-----------------------------------------------------------
 axecute(file.path(dir,"mpg.R"), remove_log_object = FALSE)

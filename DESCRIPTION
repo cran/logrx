@@ -1,13 +1,12 @@
 Package: logrx
 Title: A Logging Utility Focus on Clinical Trial Programming Workflows
-Version: 0.1.1
+Version: 0.2.0
 Authors@R: 
     c(
     person(given = "Nathan",
            family = "Kosiba",
-           email = "Nathan.Kosiba@atorusresearch.com",
-           role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0001-5359-4234")),
+           email = "nhkosiba@gmail.com",
+           role = c("aut", "cre")),
     person(given = "Thomas",
            family = "Bermudez",
            email = "thomas.a.bermudez@gsk.com",
@@ -29,27 +28,27 @@ Authors@R:
     )
 Description: A utility to facilitate the logging and review of R programs in clinical trial programming workflows.
 License: MIT + file LICENSE
-URL: https://github.com/atorus-research/logrx
-BugReports: https://github.com/atorus-research/logrx/issues
+URL: https://github.com/pharmaverse/logrx
+BugReports: https://github.com/pharmaverse/logrx/issues
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: dplyr, magrittr, purrr, rlang, stats, tidyr, stringr, miniUI,
         rstudioapi, shiny, sessioninfo (>= 1.2), stringi, waiter,
-        tibble
+        tibble, digest, lintr
 Suggests: testthat (>= 3.0.0), knitr, rmarkdown, withr, covr, pkgdown,
         Tplyr, haven, here
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Depends: R (>= 3.5.0)
 NeedsCompilation: no
-Packaged: 2022-08-24 15:56:52 UTC; nathan.kosiba
-Author: Nathan Kosiba [aut, cre] (<https://orcid.org/0000-0001-5359-4234>),
+Packaged: 2023-01-18 16:36:42 UTC; Nathan
+Author: Nathan Kosiba [aut, cre],
   Thomas Bermudez [aut],
   Ben Straub [aut],
   Michael Rimler [aut],
   Nicholas Masel [aut],
   GSK/Atorus JPT [cph, fnd]
-Maintainer: Nathan Kosiba <Nathan.Kosiba@atorusresearch.com>
+Maintainer: Nathan Kosiba <nhkosiba@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-09-12 13:20:02 UTC
+Date/Publication: 2023-01-18 17:30:02 UTC
