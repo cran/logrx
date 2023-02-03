@@ -1,10 +1,10 @@
-edf8164d8b678853a19c8c5003b72aaf *DESCRIPTION
+eee4583c74e22ae1ce2fb5e846ef9d8c *DESCRIPTION
 78eea76045d27c0511df3ff173492b5b *LICENSE
-d23b9b67d03af8a0b1876da814407e9e *NAMESPACE
-b13b4f22e46327e573af6eb0ef59159e *NEWS.md
+3bf56b57bd3f3636b099b69bee81087e *NAMESPACE
+54690d85f97ee34fe9709b1879af7d31 *NEWS.md
 1a1219ab7e86f3afb8f0fcdffa4df8a8 *R/axecute.R
 6ca73fe1d5d9fd5a27ef23dfc2e0568f *R/datasets.R
-3617b77c2e5e60f3156ede1e900c5c27 *R/get.R
+6c2b13189e010a479936c40ca4dfb8f7 *R/get.R
 2d88670ade3ebb10b500a29c55dd08b0 *R/interact.R
 e33c6dbc8ce04ea64e6d9259d4b7438e *R/log.R
 bf72d6622d3bfb05d3fda6d210879be4 *R/logrxAddin.R
@@ -55,7 +55,7 @@ d8e02581197c6a4759ca4c89370b02fd *tests/testthat/ref/run_file_test_parent_env.R
 def0e57069dc5145d101e096929940bf *tests/testthat/ref/safely_loudly_test_file.R
 875369523a8e0899e51c24bd0314db77 *tests/testthat/ref/safely_loudly_test_file_result.R
 fdf21ee8405de319aa109c36268246ff *tests/testthat/test-axecute.R
-20c45903d162cbb185dfa0dd2b59d331 *tests/testthat/test-get.R
+260ad70f50c9decd65f6ac6d9126f1a4 *tests/testthat/test-get.R
 a667312a6a091360a1729ddba1f6c08d *tests/testthat/test-interact.R
 2815dfc5ddc99fc4d541074d107d9ef1 *tests/testthat/test-log.R
 1db28646cdc13ea9fec3c4850c246d26 *tests/testthat/test-sha1.R
