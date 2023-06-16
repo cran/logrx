@@ -1,6 +1,6 @@
 Package: logrx
 Title: A Logging Utility Focus on Clinical Trial Programming Workflows
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: 
     c(
     person(given = "Nathan",
@@ -33,16 +33,16 @@ BugReports: https://github.com/pharmaverse/logrx/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
-Imports: dplyr, magrittr, purrr, rlang, stats, tidyr, stringr, miniUI,
-        rstudioapi, shiny, sessioninfo (>= 1.2), stringi, waiter,
-        tibble, digest, lintr
+Imports: dplyr (>= 1.0.0), magrittr, purrr, rlang, stats, tidyr,
+        stringr, miniUI, rstudioapi, shiny, sessioninfo (>= 1.2),
+        stringi, waiter, tibble, digest, lintr
 Suggests: testthat (>= 3.0.0), knitr, rmarkdown, withr, covr, pkgdown,
         Tplyr, haven, here
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Depends: R (>= 3.5.0)
 NeedsCompilation: no
-Packaged: 2023-02-03 15:33:11 UTC; Nathan
+Packaged: 2023-06-16 15:39:29 UTC; Nathan
 Author: Nathan Kosiba [aut, cre],
   Thomas Bermudez [aut],
   Ben Straub [aut],
@@ -51,4 +51,4 @@ Author: Nathan Kosiba [aut, cre],
   GSK/Atorus JPT [cph, fnd]
 Maintainer: Nathan Kosiba <nhkosiba@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-02-03 16:02:32 UTC
+Date/Publication: 2023-06-16 16:00:02 UTC
