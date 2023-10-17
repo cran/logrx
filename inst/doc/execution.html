@@ -350,18 +350,18 @@ using <code>logrx</code> to create scripting.</p>
 <div id="methods-of-execution" class="section level1">
 <h1>Methods of Execution</h1>
 <p>Below you will find a number of examples for different methods of
-exectuion, these go in an increasing level of complexity and increasing
+execution, these go in an increasing level of complexity and increasing
 level of technical knowledge. The below examples are meant to be
 starting points for those interested in using <code>logrx</code> in more
 complex settings.</p>
 <div id="axecute" class="section level2">
 <h2><code>axecute()</code></h2>
 <p>The easiest of the execution methods to use is
-<code>axecute()</code>. This function can be used to exeucte code from
+<code>axecute()</code>. This function can be used to execute code from
 an R terminal or using command line scripts. A log is set-up around the
 program, and its code is run safely and loudly (using
 <code>safely()</code> from <code>{purrr}</code>).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">axecute</span>(<span class="st">&quot;my_script.R&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">axecute</span>(<span class="st">&quot;my_script.R&quot;</span>)</span></code></pre></div>
 </div>
 <div id="log_-functions" class="section level2">
 <h2><code>log_*()</code> functions</h2>
@@ -383,16 +383,16 @@ passed an executable R file to run and create the log elements
 from</p></li>
 <li><p><code>log_write()</code> to generate and format the log</p></li>
 <li><p><code>log_remove()</code> to remove the <code>log.rx</code>
-environment created by code exeuction</p></li>
+environment created by code execution</p></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log_config</span>(<span class="st">&quot;my_script.R&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_safely_loudly</span>(<span class="st">&quot;my_script.R&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">log_write</span>()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">log_remove</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">log_config</span>(<span class="st">&quot;my_script.R&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">run_safely_loudly</span>(<span class="st">&quot;my_script.R&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">log_write</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">log_remove</span>()</span></code></pre></div>
 </div>
 <div id="command-line-execution" class="section level2">
 <h2>Command Line Execution</h2>
-<p>While exeucting from an R terminal is nice if you have access to one,
+<p>While executing from an R terminal is nice if you have access to one,
 you can also execute your code using system command line. This is done
 using the <code>Rscript -e</code> command which executes a file using
 the registered Rscript executable. Below are a few examples of how to
@@ -402,19 +402,19 @@ advanced examples for most users.</p>
 <p>The below chunk will run the file my_script.R and output any standard
 output that is created by the execution of the file to the default
 location.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;my_script.R&#39;, log_name = &#39;my_script.log&#39;, log_path = &#39;.&#39;)&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;my_script.R&#39;, log_name = &#39;my_script.log&#39;, log_path = &#39;.&#39;)&quot;</span></span></code></pre></div>
 <p>The below chunk will run the file <code>my_script.R</code> and output
 any standard output that is created by the execution of the file to a
 file called <code>temp.log</code>. This output can then later be
 accessed should the user want to check the output of the file
 execution.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;my_script.R&#39;, log_name = &#39;my_script.log&#39;, log_path = &#39;.&#39;)&quot;</span> <span class="op">&gt;</span> temp.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;my_script.R&#39;, log_name = &#39;my_script.log&#39;, log_path = &#39;.&#39;)&quot;</span> <span class="op">&gt;</span> temp.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code></pre></div>
 <p>The below chunk will run the file <code>my_script.R</code> and output
 any standard output that is created by the execution of the file to a
 file called <code>temp.log</code>. It will then take the contents of the
 <code>temp.log</code> file and add those to the end of the log file
 generated by the file execution and remove the temporary output log.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;my_script.R&#39;, log_name = &#39;my_script.log&#39;, log_path = &#39;.&#39;)&quot;</span> <span class="op">&gt;</span> temp.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="fu">cat</span> my_script.log <span class="op">&gt;&gt;</span> my_script.log<span class="kw">;</span> <span class="fu">rm</span> my_script.log</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;my_script.R&#39;, log_name = &#39;my_script.log&#39;, log_path = &#39;.&#39;)&quot;</span> <span class="op">&gt;</span> temp.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="fu">cat</span> my_script.log <span class="op">&gt;&gt;</span> my_script.log<span class="kw">;</span> <span class="fu">rm</span> my_script.log</span></code></pre></div>
 </div>
 </div>
 <div id="scripting-with-logrx" class="section level1">
@@ -426,7 +426,7 @@ execution and scripted file execution in mind. With the use of simple
 functions such as <code>lapply()</code> scripting is easy. Below is some
 sample code of how <code>lapply()</code> can be used with
 <code>axecute()</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;file.R&quot;</span>, <span class="st">&quot;otherfile.R&quot;</span>), axecute)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;file.R&quot;</span>, <span class="st">&quot;otherfile.R&quot;</span>), axecute)</span></code></pre></div>
 <p>If your scripting needs to work on the contents of a directory
 instead of a pre-defined list, functions such as <code>list.files</code>
 can be used to obtain a list of files to use. Below is an example of how
@@ -434,20 +434,20 @@ this can be applied in practice by getting all files ending in
 <code>.R</code> in the current working directory using a regular
 expression, and then using <code>lapply()</code> to run the files using
 <code>axecute()</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>r_script_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r_script_list, axecute)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>r_script_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">lapply</span>(r_script_list, axecute)</span></code></pre></div>
 <p>Additionally, if you need your code to run using a shell scripting
 language such as bash these files can be created to run using the
 previously outlined Command Line Execution examples. The above scripting
-examples can be translated into a variety of different scritping
+examples can be translated into a variety of different scripting
 languages. Below is an example where the bash script is executed in a
 directory of R files, this should execute all R files in the directory
 using <code>axecute()</code> and create a corresponding set of log
 files.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> file <span class="kw">in</span> <span class="pp">*</span>.R<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">[</span> <span class="ot">-f</span> <span class="st">&quot;</span><span class="va">$file</span><span class="st">&quot;</span> <span class="bu">]</span> <span class="kw">||</span> <span class="cf">continue</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;</span><span class="va">$file</span><span class="st">&#39;)&quot;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="cf">for</span> file <span class="kw">in</span> <span class="pp">*</span>.R<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>    <span class="bu">[</span> <span class="ot">-f</span> <span class="st">&quot;</span><span class="va">$file</span><span class="st">&quot;</span> <span class="bu">]</span> <span class="kw">||</span> <span class="cf">continue</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>    <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&quot;logrx::axecute(&#39;</span><span class="va">$file</span><span class="st">&#39;)&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 </div>
 
 

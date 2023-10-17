@@ -50,8 +50,11 @@ fileConn <- file(file.path(dir,"mpg.R"))
 writeLines(text, fileConn)
 close(fileConn)
 
-## ----results='hide'-----------------------------------------------------------
-axecute(file.path(dir,"mpg.R"), remove_log_object = FALSE)
+## ----results='hide', echo = FALSE---------------------------------------------
+fp <- file.path(dir,"mpg.R")
+log_config(fp)
+logrx:::run_safely_loudly(fp)
+log_write(fp, remove_log_object = FALSE)
 
 ## ----echo=FALSE---------------------------------------------------------------
 cleaned_log_vec <- c()

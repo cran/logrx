@@ -382,51 +382,51 @@ entire package for use within your validated environment.</p>
 <p>The named list contains the functions approved for use for each
 package. If all functions for a package are approved for use, list
 “All”.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>approved_pkgs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">base =</span> <span class="st">&quot;mean&quot;</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dplyr =</span> <span class="st">&quot;All&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>approved_pkgs</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $base</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;mean&quot;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $dplyr</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>approved_pkgs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">base =</span> <span class="st">&quot;mean&quot;</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>                      <span class="at">dplyr =</span> <span class="st">&quot;All&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>approved_pkgs</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; $base</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;mean&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; $dplyr</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All&quot;</span></span></code></pre></div>
 </div>
 <div id="build-approved.rds" class="section level2">
 <h2>2. Build <code>approved.rds</code></h2>
 <p>Pass the named list through <code>build_approved()</code> to build
 your tibble. We create a temp directory to save this for
 illustration.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build_approved</span>(approved_pkgs)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 294 × 2</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    function_name         library      </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;                 &lt;chr&gt;        </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 mean                  package:base </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 slice_max             package:dplyr</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 expr                  package:dplyr</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 src                   package:dplyr</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 db_desc               package:dplyr</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 group_by_drop_default package:dplyr</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 db_commit             package:dplyr</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 coalesce              package:dplyr</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 data_frame            package:dplyr</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 summarize_if          package:dplyr</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 284 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">build_approved</span>(approved_pkgs)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 294 × 2</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;    function_name library      </span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;        </span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt;  1 mean          package:base </span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt;  2 rows_upsert   package:dplyr</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;  3 src_local     package:dplyr</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;  4 db_analyze    package:dplyr</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;  5 n_groups      package:dplyr</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  6 distinct      package:dplyr</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  7 summarise_    package:dplyr</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  8 group_split   package:dplyr</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  9 group_by_if   package:dplyr</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 10 sample_n      package:dplyr</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 284 more rows</span></span></code></pre></div>
 </div>
 <div id="save-as-approved.rds" class="section level2">
 <h2>3. Save as <code>approved.rds</code></h2>
 <p>You can use the <code>file</code> argument in
 <code>build_approved()</code> to save <code>approved.rds</code> instead
 of returning the tibble.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dir <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">build_approved</span>(approved_pkgs, <span class="at">file =</span> <span class="fu">file.path</span>(dir, <span class="st">&quot;approved.rds&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>dir <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">build_approved</span>(approved_pkgs, <span class="at">file =</span> <span class="fu">file.path</span>(dir, <span class="st">&quot;approved.rds&quot;</span>))</span></code></pre></div>
 </div>
 <div id="update-the-logrx.approved-option" class="section level2">
 <h2>4. Update the <code>logrx.approved</code> option</h2>
 <p>Update the <code>logrx.approved</code> option to point to your
 <code>approved.rds</code> location. We recommend setting this in your
 <code>.Rprofile</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">log.rx.approved =</span> <span class="fu">file.path</span>(dir, <span class="st">&quot;approved.rds&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">log.rx.approved =</span> <span class="fu">file.path</span>(dir, <span class="st">&quot;approved.rds&quot;</span>))</span></code></pre></div>
 </div>
 <div id="youre-done.-lets-axecute" class="section level2">
 <h2>5. You’re done. Let’s axecute!</h2>
@@ -442,20 +442,19 @@ file.</p>
 <p>Let’s write a simple script summarizing mean mpg from mtcars. We save
 this as <code>mpg.R</code> in the temporary directory <code>dir</code>
 and <code>axecute()</code> it.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mpg)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">label =</span> <span class="st">&quot;Mean MPG&quot;</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>results <span class="sc">%&gt;%</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>   tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> cyl, <span class="at">values_from =</span> mean, <span class="at">id_cols =</span> label)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 4</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   label      `4`   `6`   `8`</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mean MPG  26.7  19.7  15.1</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">axecute</span>(<span class="fu">file.path</span>(dir,<span class="st">&quot;mpg.R&quot;</span>), <span class="at">remove_log_object =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">library</span>(dplyr, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>results <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>   <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mpg)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">label =</span> <span class="st">&quot;Mean MPG&quot;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>results <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>   tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> cyl, <span class="at">values_from =</span> mean, <span class="at">id_cols =</span> label)</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 4</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt;   label      `4`   `6`   `8`</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; 1 Mean MPG  26.7  19.7  15.1</span></span></code></pre></div>
 <p>Here we have the log elements for “Used Package and Functions” and
 “Unapproved Package and Functions”. We can see we used
 <code>library()</code> from <code>package:base</code> and
@@ -473,6 +472,18 @@ this has been logged!</p>
 #&gt; --------------------------------------------------------------------------------
 #&gt; {package:base} library
 #&gt; {package:tidyr} pivot_wider</code></pre>
+</div>
+<div id="a-few-words-of-caution" class="section level1">
+<h1>A Few Words of Caution</h1>
+<p>All packages should be attached at the top of the script to set a
+consistent <code>?base::searchpaths()</code> throughout the entire
+script. This will ensure the functions you use in your script are linked
+to the correct package. A lint feature is available to test your scripts
+follow this best practice.</p>
+<p>Some functions are stored within a list, for example
+<code>knitr::opts_chunck$get()</code> and
+<code>knitr::opts_current$get()</code>. We do not currently identify
+<code>get()</code> as a knitr function since it is not exported.</p>
 </div>
 
 
