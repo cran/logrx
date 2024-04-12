@@ -1,6 +1,6 @@
 Package: logrx
 Title: A Logging Utility Focus on Clinical Trial Programming Workflows
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: 
     c(
     person(given = "Nathan",
@@ -46,7 +46,7 @@ VignetteBuilder: knitr
 Config/testthat/edition: 3
 Depends: R (>= 4.0.0)
 NeedsCompilation: no
-Packaged: 2023-10-17 19:42:28 UTC; r590548
+Packaged: 2024-04-12 00:24:55 UTC; Nathan
 Author: Nathan Kosiba [aut, cre],
   Thomas Bermudez [aut],
   Ben Straub [aut],
@@ -56,4 +56,4 @@ Author: Nathan Kosiba [aut, cre],
   GSK/Atorus JPT [cph, fnd]
 Maintainer: Nathan Kosiba <nhkosiba@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-10-17 20:50:03 UTC
+Date/Publication: 2024-04-12 02:20:02 UTC
