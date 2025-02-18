@@ -1,3 +1,6 @@
+# logrx 0.3.2
+
+ - Hotfix to update tests (#231)
 
 # logrx 0.3.1
 

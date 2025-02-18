@@ -8,5 +8,5 @@ knitr::opts_chunk$set(
 library(logrx)
 
 ## ----axecute, eval = FALSE----------------------------------------------------
-#  axecute("my_script.R")
+# axecute("my_script.R")
 
