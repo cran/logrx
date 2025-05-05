@@ -27,11 +27,11 @@ Below are the options and their default values
 
 ```{r options_table}
 table_ops <- tribble(
-   ~option, ~value, ~description,
-   "log.rx", "An empty R environment", "Used to store log elements during program exection",
-   "log.rx.exec.env", "NULL", "The environment in which the program code is executed",
-   "[log.rx.lint]", "FALSE", "A `lintr` object for use in lint checking",
-   "[log.rx.approved]", "./approved.rds", "Location of an approved functions file"
+  ~option, ~value, ~description,
+  "log.rx", "An empty R environment", "Used to store log elements during program exection",
+  "log.rx.exec.env", "NULL", "The environment in which the program code is executed",
+  "[log.rx.lint]", "FALSE", "A `lintr` object for use in lint checking",
+  "[log.rx.approved]", "./approved.rds", "Location of an approved functions file"
 )
 
 kable(table_ops)
@@ -51,7 +51,7 @@ If you or your organization would like to implement any linters, you can set you
 
 <br>
 
-It is recommended to use the `library_call_linter()`.  This is to ensure `logrx` will find the correct package and functions used.
+It is recommended to use the `lintr::library_call_linter()`.  This is to ensure `logrx` will find the correct package and functions used.
 
 <br>
 

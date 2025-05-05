@@ -239,7 +239,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<pre><code>#&gt; Warning: package &#39;knitr&#39; was built under R version 4.4.2
+<pre><code>#&gt; Warning: package &#39;knitr&#39; was built under R version 4.4.3
 #&gt; Warning: package &#39;tibble&#39; was built under R version 4.4.2</code></pre>
 <p>One of the ways that <code>logrx</code> has been built to be
 customizable is to add a set of options to enable different logging and
@@ -300,9 +300,9 @@ can set your <code>log.rx.lint</code> option globally so your specific
 set of checks are run and their results are recorded to your log for
 every script executed.</p>
 <p><br></p>
-<p>It is recommended to use the <code>library_call_linter()</code>. This
-is to ensure <code>logrx</code> will find the correct package and
-functions used.</p>
+<p>It is recommended to use the
+<code>lintr::library_call_linter()</code>. This is to ensure
+<code>logrx</code> will find the correct package and functions used.</p>
 <p><br></p>
 <p>Hester J, Angly F, Hyde R, Chirico M, Ren K, Rosenstock A, Patil I
 (2022). lintr: A ‘Linter’ for R Code. <a href="https://github.com/r-lib/lintr" class="uri">https://github.com/r-lib/lintr</a>, <a href="https://lintr.r-lib.org" class="uri">https://lintr.r-lib.org</a>.</p>

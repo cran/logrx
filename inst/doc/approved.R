@@ -7,8 +7,10 @@ knitr::opts_chunk$set(
 library(logrx)
 
 ## -----------------------------------------------------------------------------
-approved_pkgs <- list(base = "mean",
-                      dplyr = "All")
+approved_pkgs <- list(
+  base = "mean",
+  dplyr = "All"
+)
 approved_pkgs
 
 ## -----------------------------------------------------------------------------
@@ -26,12 +28,12 @@ options(log.rx.approved = file.path(dir, "approved.rds"))
 library(dplyr, warn.conflicts = FALSE)
 
 results <- mtcars %>%
-   group_by(cyl) %>%
-   summarize(mean = mean(mpg)) %>%
-   mutate(label = "Mean MPG")
+  group_by(cyl) %>%
+  summarize(mean = mean(mpg)) %>%
+  mutate(label = "Mean MPG")
 
 results %>%
-   tidyr::pivot_wider(names_from = cyl, values_from = mean, id_cols = label)
+  tidyr::pivot_wider(names_from = cyl, values_from = mean, id_cols = label)
 
 ## ----echo = FALSE-------------------------------------------------------------
 # write this to the temp directory so we have a script to axecute
@@ -45,13 +47,13 @@ results <- mtcars %>%
 
 results %>%
    tidyr::pivot_wider(names_from = cyl, values_from = mean, id_cols = label)'
-   
-fileConn <- file(file.path(dir,"mpg.R"))
+
+fileConn <- file(file.path(dir, "mpg.R"))
 writeLines(text, fileConn)
 close(fileConn)
 
 ## ----results='hide', echo = FALSE---------------------------------------------
-fp <- file.path(dir,"mpg.R")
+fp <- file.path(dir, "mpg.R")
 log_config(fp)
 logrx:::run_safely_loudly(fp)
 log_write(fp, remove_log_object = FALSE)
@@ -59,13 +61,17 @@ log_write(fp, remove_log_object = FALSE)
 ## ----echo=FALSE---------------------------------------------------------------
 cleaned_log_vec <- c()
 
-cleaned_log_vec <- c(cleaned_log_vec,
-                           write_log_header("Used Package and Functions"),
-                           write_used_functions())
+cleaned_log_vec <- c(
+  cleaned_log_vec,
+  write_log_header("Used Package and Functions"),
+  write_used_functions()
+)
 
-cleaned_log_vec <- c(cleaned_log_vec,
-                           write_log_header("Unapproved Package and Functions"),
-                           write_unapproved_functions())
+cleaned_log_vec <- c(
+  cleaned_log_vec,
+  write_log_header("Unapproved Package and Functions"),
+  write_unapproved_functions()
+)
 cat(cleaned_log_vec, sep = "\n")
 
 ## ----cleanup, echo = FALSE----------------------------------------------------

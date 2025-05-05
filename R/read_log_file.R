@@ -32,8 +32,8 @@ reformat_subsections <- function(log_txt) {
         )
     }
     # replace utf8 line and double line to ascii due to cli symbol variation
-    i <- stringr::str_replace_all(i, '\u2550', '=')
-    i <- stringr::str_replace_all(i, '\u2500', '-')
+    i <- stringr::str_replace_all(i, "\u2550", "=")
+    i <- stringr::str_replace_all(i, "\u2500", "=")
     adj_log_txt <- c(adj_log_txt, i)
   }
   return(adj_log_txt)
@@ -89,7 +89,7 @@ nest_sections <- function(adj_log_txt) {
 #'
 nest_subsections <- function(adj_log_txt, sect_info) {
   subsect_headers <- stats::na.omit(
-    stringr::str_extract(adj_log_txt, "\\-\\s\\w+\\s(\\w+\\s)?\\-{3,70}")
+    stringr::str_extract(adj_log_txt, "[\\-|\\=]\\s\\w+\\s(\\w+\\s)?[\\-|\\=]{3,70}")
   )
   subset_sections <- function(section) {
     subsect_status <- FALSE
@@ -97,7 +97,7 @@ nest_subsections <- function(adj_log_txt, sect_info) {
     for (i in section) {
       if (i %in% subsect_headers) {
         latest_subsect <- stringr::str_trim(
-          stringr::str_remove_all(i, "\\-")
+          stringr::str_remove_all(i, "[\\-|\\=]")
         )
         subsect_status <- TRUE
       } else if (subsect_status) {
@@ -146,7 +146,8 @@ nest_log <- function(adj_log_txt) {
 parse_log <- function(nested_log) {
   if (!requireNamespace("readr", quietly = TRUE)) {
     warning(strwrap("Install the readr package to use log parsing feature.",
-         prefix = " ", initial = ""))
+      prefix = " ", initial = ""
+    ))
     return(list())
   }
 
@@ -190,27 +191,42 @@ parse_log <- function(nested_log) {
         fill = "right"
       ) %>%
       dplyr::mutate(dplyr::across(tidyselect::where(is.character), stringr::str_trim))
-
     parsed_log$`Session Information`$`Packages` <-
       nested_log$`Session Information`$`Packages` %>%
       # remove indicator whether the package is attached to the search path
       stringr::str_replace_all("\\*", " ") %>%
       # account for loaded packages due to load_all()
       stringr::str_replace_all(" P ", "   ") %>%
-      readr::read_table(skip = 1, col_names = FALSE) %>%
-      dplyr::rename_with(~ c(
-        "package",
-        "version",
-        "date",
-        "lib",
-        "source",
-        "lang",
-        "r_version"
-      )) %>%
-      dplyr::mutate(
-        lang = stringr::str_remove(lang, "\\("),
-        r_version = stringr::str_remove(r_version, "\\)")
-      )
+      readr::read_table(skip = 1, col_names = FALSE)
+
+    # handle case where log is has 7 columns due to sessioninfo v1.2.2 or earlier
+    if (ncol(parsed_log$`Session Information`$`Packages`) == 7) {
+      parsed_log$`Session Information`$`Packages` <-
+        parsed_log$`Session Information`$`Packages` %>%
+        dplyr::rename_with(~ c(
+          "package",
+          "version",
+          "date",
+          "lib",
+          "source",
+          "lang",
+          "r_version"
+        )) %>%
+        dplyr::mutate(
+          lang = stringr::str_remove(lang, "\\("),
+          r_version = stringr::str_remove(r_version, "\\)")
+        )
+    } else {
+      parsed_log$`Session Information`$`Packages` <-
+        parsed_log$`Session Information`$`Packages` %>%
+        dplyr::rename_with(~ c(
+          "package",
+          "version",
+          "date",
+          "lib",
+          "source"
+        ))
+    }
 
     parsed_log$`Session Information`$`External software` <-
       nested_log$`Session Information`$`External software` %>%
@@ -223,6 +239,18 @@ parse_log <- function(nested_log) {
         fill = "right"
       ) %>%
       dplyr::mutate(dplyr::across(tidyselect::where(is.character), stringr::str_trim))
+  }
+
+  if ("Repo URLs" %in% names(nested_log)) {
+    parsed_log$`Repo URLs` <-
+      nested_log$`Repo URLs` %>%
+      unlist() %>%
+      stringr::str_trim() %>%
+      tibble::tibble() %>%
+      tidyr::separate(".",
+        sep = "\\:\\s+",
+        into = c("Name", "URL")
+      )
   }
 
   if ("Masked Functions" %in% names(nested_log)) {
@@ -288,7 +316,8 @@ read_log_file <- function(file) {
 
   if (!requireNamespace("readr", quietly = TRUE)) {
     warning(strwrap("Install the readr package to use log parsing feature.",
-                 prefix = " ", initial = ""))
+      prefix = " ", initial = ""
+    ))
     return(list())
   }
 
